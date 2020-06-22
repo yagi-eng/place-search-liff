@@ -1,11 +1,7 @@
 <template>
-  <v-container>
-    <v-row justify="center">
-      <v-col cols="6">
-        <v-card>
-          <v-card-title>Hello, Vuetify!</v-card-title>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+  <section class="section">
+    <div class="container">
+      お気に入り一覧を表示するよ！
+    </div>
+  </section>
 </template>
