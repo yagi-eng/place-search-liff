@@ -1,9 +1,14 @@
 <template>
   <section class="section">
     <div class="container">
-      <nuxt-link to="/">お気に入り一覧へ</nuxt-link>
+      <div class="mt">
+        <nuxt-link to="/">お気に入り一覧へ</nuxt-link>
+      </div>
       <div v-for="place in places" v-bind:key="place.id">
         <Place :place="place" />
+      </div>
+      <div class="mt">
+        <nuxt-link to="/">お気に入り一覧へ</nuxt-link>
       </div>
     </div>
   </section>
@@ -14,8 +19,8 @@ import ROUTES from "~/routes/api";
 import Place from "~/components/Place";
 
 export default {
-  components:{
-    Place,
+  components: {
+    Place
   },
   computed: {
     places() {
@@ -40,3 +45,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.mt {
+  margin-bottom: 1.25rem;
+}
+</style>
