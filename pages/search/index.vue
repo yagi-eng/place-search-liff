@@ -3,7 +3,7 @@
     <div class="container">
       <nuxt-link to="/">お気に入り一覧へ</nuxt-link>
       <div v-for="place in places" v-bind:key="place.id">
-        <p>{{ place.Name }}</p>
+        <Place :place="place" />
       </div>
     </div>
   </section>
@@ -11,8 +11,12 @@
 
 <script>
 import ROUTES from "~/routes/api";
+import Place from "~/components/Place";
 
 export default {
+  components:{
+    Place,
+  },
   computed: {
     places() {
       return this.$store.getters.getSearchPlaces;
