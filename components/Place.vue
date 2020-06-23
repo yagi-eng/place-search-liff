@@ -1,10 +1,15 @@
 <template>
-  <div>
-    <p>{{ place.Name }}</p>
-    <p>{{ place.PlaceID }}</p>
-    <p>{{ place.Address }}</p>
-    <p>{{ place.PhotoURL }}</p>
-  </div>
+  <v-card class="mx-auto mt" max-width="400">
+    <v-img height="200px" :src="place.PhotoURL"></v-img>
+
+    <v-card-subtitle>{{ place.Name }}</v-card-subtitle>
+
+    <v-card-text class="text--primary">{{ place.Address }}</v-card-text>
+
+    <v-card-actions>
+      <v-btn color="primary" link nuxt :href="place.URL">Open Google Map</v-btn>
+    </v-card-actions>
+  </v-card>
 </template>
 
 <script>
@@ -16,3 +21,14 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.mt {
+  margin-bottom: 1.25rem;
+}
+
+.primary {
+  background-color: #1976d2 !important;
+  border-color: #1976d2 !important;
+}
+</style>
