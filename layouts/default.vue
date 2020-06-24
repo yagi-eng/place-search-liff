@@ -18,6 +18,7 @@ export default {
         liffId: process.env.LIFF_ID
       })
       .then(() => {
+        console.log(liff.getIDToken())
         // Webブラウザからアクセスされた場合は、LINEにログインする
         if (!liff.isInClient() && !liff.isLoggedIn()) {
           window.alert("LINEアカウントにログインしてください。")
