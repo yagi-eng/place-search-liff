@@ -11,8 +11,15 @@ export class RequestClient {
         return await this.axios.$get(query)
     }
 
-    async post(uri) {
-        return await this.axios.$post(uri)
+    async post(uri, param = {}) {
+        var urlSearchParams = new URLSearchParams()
+        for (var key in param) {
+            if (param.hasOwnProperty(key)) {
+                var val = param[key];
+                urlSearchParams.append(key, val)
+            }
+        }
+        return await this.axios.$post(uri, urlSearchParams)
     }
 }
 
