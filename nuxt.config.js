@@ -1,3 +1,5 @@
+require('dotenv').config();
+const { LIFF_ID } = process.env;
 
 export default {
   /*
@@ -52,5 +54,8 @@ export default {
   },
   axios: {
     baseURL: 'https://resto-clip.herokuapp.com/'
+  },
+  env: {
+    LIFF_ID
   },
 }
