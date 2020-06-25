@@ -23,7 +23,7 @@ export default {
   },
   computed: {
     places() {
-      return this.$store.getters.getFavoritePlaces;
+      return this.$store.getters.getFavoritePlaces
     }
   },
   async fetch({ store, query }) {

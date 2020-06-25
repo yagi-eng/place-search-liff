@@ -24,7 +24,7 @@ export default {
   },
   computed: {
     places() {
-      return this.$store.getters.getSearchPlaces;
+      return this.$store.getters.getSearchPlaces
     }
   },
   async fetch({ store, query }) {
@@ -39,9 +39,9 @@ export default {
       store.getters.getSearchPlaces &&
       store.getters.getSearchPlaces.length > 0
     ) {
-      return;
+      return
     }
-    await store.dispatch("searchPlaces", payload);
+    await store.dispatch("searchPlaces", payload)
   }
 };
 </script>
