@@ -55,6 +55,7 @@ export default {
   },
   axios: {
     baseURL: 'https://resto-clip.herokuapp.com/'
+    // baseURL: 'http://localhost:8080'
   },
   env: {
     LIFF_ID

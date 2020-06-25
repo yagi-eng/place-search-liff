@@ -1,11 +1,30 @@
 import { createRequestClient } from '~/store/request-client';
 
 export const state = () => ({
+    lineIDToken: "",
     searchPlaces: [],
     favoritePlaces: [],
 })
 
 export const actions = {
+    getLineIDToken({ commit }) {
+        liff
+        .init({
+          liffId: process.env.LIFF_ID
+        })
+        .then(() => {
+          console.log(liff.getIDToken())
+          commit('mutateLineIDToken', liff.getIDToken())
+          // Webブラウザからアクセスされた場合は、LINEにログインする
+          if (!liff.isInClient() && !liff.isLoggedIn()) {
+            window.alert("LINEアカウントにログインしてください。")
+            liff.login({ redirectUri: location.href })
+          }
+        })
+        .catch(err => {
+          console.log("LIFF Initialization failed ", err)
+        })
+    },
     async searchPlaces({ commit }, payload) {
         const client = createRequestClient(this.$axios)
         const res = await client.get(payload.uri, payload.params)
@@ -19,6 +38,9 @@ export const actions = {
 }
 
 export const mutations = {
+    mutateLineIDToken(state, idToken) {
+        state.lineIDToken = idToken
+    },
     mutateSearchPlaces(state, payload) {
         state.searchPlaces = payload.GoogleMapOutputs ? state.searchPlaces.concat(payload.GoogleMapOutputs) : []
     },
@@ -28,6 +50,9 @@ export const mutations = {
 }
 
 export const getters = {
+    getLineIDToken(state) {
+        return state.lineIDToken
+    },
     getSearchPlaces(state) {
         return state.searchPlaces
     },

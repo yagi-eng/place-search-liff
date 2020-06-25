@@ -13,21 +13,21 @@ export default {
   },
   mounted() {
     // LIFFの初期化
-    liff
-      .init({
-        liffId: process.env.LIFF_ID
-      })
-      .then(() => {
-        console.log(liff.getIDToken())
-        // Webブラウザからアクセスされた場合は、LINEにログインする
-        if (!liff.isInClient() && !liff.isLoggedIn()) {
-          window.alert("LINEアカウントにログインしてください。")
-          liff.login({ redirectUri: location.href })
-        }
-      })
-      .catch(err => {
-        console.log("LIFF Initialization failed ", err)
-      })
+    // liff
+    //   .init({
+    //     liffId: process.env.LIFF_ID
+    //   })
+    //   .then(() => {
+    //     console.log(liff.getIDToken())
+    //     // Webブラウザからアクセスされた場合は、LINEにログインする
+    //     if (!liff.isInClient() && !liff.isLoggedIn()) {
+    //       window.alert("LINEアカウントにログインしてください。")
+    //       liff.login({ redirectUri: location.href })
+    //     }
+    //   })
+    //   .catch(err => {
+    //     console.log("LIFF Initialization failed ", err)
+    //   })
   }
 };
 </script>
