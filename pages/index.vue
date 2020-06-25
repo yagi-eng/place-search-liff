@@ -22,20 +22,20 @@ export default {
     }
   },
   async fetch({ store, query }) {
-    // console.log(store.getters.getLineIDToken)
-    // const payload = {
-    //   uri: ROUTES.POST.GET_FAVORITE,
-    //   params: {
-    //     line_id_token: store.getters.getLineIDToken
-    //   }
-    // }
-    // if (
-    //   store.getters.getFavoritePlaces &&
-    //   store.getters.getFavoritePlaces.length > 0
-    // ) {
-    //   return
-    // }
-    // await store.dispatch("getFavoritePlaces", payload)
+    console.log(store.getters.getLineIDToken)
+    const payload = {
+      uri: ROUTES.POST.GET_FAVORITE,
+      params: {
+        line_id_token: store.getters.getLineIDToken
+      }
+    }
+    if (
+      store.getters.getFavoritePlaces &&
+      store.getters.getFavoritePlaces.length > 0
+    ) {
+      return
+    }
+    await store.dispatch("getFavoritePlaces", payload)
   }
 };
 </script>
