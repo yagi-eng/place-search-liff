@@ -7,6 +7,10 @@ export const state = () => ({
 })
 
 export const actions = {
+    async setLineIDToken({ commit }, payload) {
+        this.$cookies.set('jwt_token', payload)
+        commit('mutateLineIDToken', payload)
+    },
     login({ commit, dispatch }) {
         liff
             .init({
@@ -18,8 +22,10 @@ export const actions = {
                     window.alert("LINEアカウントにログインしてください。")
                     liff.login({ redirectUri: location.href })
                 }
-                console.log(liff.getIDToken())
-                commit('mutateLineIDToken', liff.getIDToken())
+                var token = liff.getIDToken()
+                console.log(token)
+                this.$cookies.set('jwt_token', token)
+                commit('mutateLineIDToken', token)
             })
             .catch(err => {
                 console.log("LIFF Initialization failed ", err)
