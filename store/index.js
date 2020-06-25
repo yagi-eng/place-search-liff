@@ -23,6 +23,7 @@ export const actions = {
                     liff.login({ redirectUri: location.href })
                 }
                 var token = liff.getIDToken()
+                console.log(token)
                 this.$cookies.set('jwt_token', token)
                 commit('mutateLineIDToken', token)
             })
