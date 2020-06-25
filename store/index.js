@@ -7,23 +7,24 @@ export const state = () => ({
 })
 
 export const actions = {
-    getLineIDToken({ commit }) {
+    login({ commit, dispatch }) {
         liff
-        .init({
-          liffId: process.env.LIFF_ID
-        })
-        .then(() => {
-          console.log(liff.getIDToken())
-          commit('mutateLineIDToken', liff.getIDToken())
-          // Webブラウザからアクセスされた場合は、LINEにログインする
-          if (!liff.isInClient() && !liff.isLoggedIn()) {
-            window.alert("LINEアカウントにログインしてください。")
-            liff.login({ redirectUri: location.href })
-          }
-        })
-        .catch(err => {
-          console.log("LIFF Initialization failed ", err)
-        })
+            .init({
+                liffId: process.env.LIFF_ID
+            })
+            .then(() => {
+                // Webブラウザからアクセスされた場合は、LINEにログインする
+                if (!liff.isInClient() && !liff.isLoggedIn()) {
+                    window.alert("LINEアカウントにログインしてください。")
+                    liff.login({ redirectUri: location.href })
+                }
+                console.log(liff.getIDToken())
+                commit('mutateLineIDToken', liff.getIDToken())
+            })
+            .catch(err => {
+                console.log("LIFF Initialization failed ", err)
+            })
+        this.app.router.push('/')
     },
     async searchPlaces({ commit }, payload) {
         const client = createRequestClient(this.$axios)
