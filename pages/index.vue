@@ -25,7 +25,7 @@ export default {
     let getLineIDToken = store.getters.getLineIDToken
     
     if (getLineIDToken == '') {
-      alert('お気に入り登録しているのに表示されない場合はリロードしてみてください')
+      return
     }
 
     const payload = {
