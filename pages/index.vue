@@ -22,11 +22,16 @@ export default {
     }
   },
   async fetch({ store, query }) {
-    console.log(store.getters.getLineIDToken)
+    let getLineIDToken = store.getters.getLineIDToken
+    
+    if (getLineIDToken == '') {
+      alert('お気に入り登録しているのに表示されない場合はリロードしてみてください')
+    }
+
     const payload = {
       uri: ROUTES.POST.GET_FAVORITE,
       params: {
-        line_id_token: store.getters.getLineIDToken
+        line_id_token: getLineIDToken
       }
     }
     if (
