@@ -8,6 +8,11 @@
 
     <v-card-actions>
       <v-btn color="primary" link nuxt :href="place.URL">Open Google Map</v-btn>
+      <div class="text-right">
+        <v-btn icon>
+          <v-icon class="active">mdi-heart</v-icon>
+        </v-btn>
+      </div>
     </v-card-actions>
   </v-card>
 </template>
@@ -31,4 +36,12 @@ export default {
   background-color: #1976d2 !important;
   border-color: #1976d2 !important;
 }
+
+.text-right {
+  margin: 0 0 0 auto;
+}
+
+  .active {
+    color: #ff1493;
+  }
 </style>
