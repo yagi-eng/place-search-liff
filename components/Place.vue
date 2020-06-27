@@ -9,7 +9,7 @@
     <v-card-actions>
       <v-btn color="primary" link nuxt :href="place.URL">Open Google Map</v-btn>
       <div class="ml">
-        <v-btn v-if="page == 'search'" @click.prevent="addFavorite">Add to my favorites</v-btn>
+        <v-btn v-if="page == 'search'" @click.prevent="addFavoritePlace">Add to my favorites</v-btn>
         <v-btn v-if="page == 'top'" @click.prevent="toggleFavorite">Remove</v-btn>
       </div>
     </v-card-actions>
@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import ROUTES from "~/routes/api";
+
 export default {
   props: {
     place: {
@@ -27,8 +29,8 @@ export default {
     }
   },
   methods: {
-    async addFavorite() {
-      let getLineIDToken = store.getters.getLineIDToken
+    async addFavoritePlace() {
+      let getLineIDToken = this.$store.getters.getLineIDToken
 
       if (getLineIDToken == "") {
         return
@@ -41,10 +43,10 @@ export default {
           place_id: this.place.PlaceID
         }
       }
-      await store.dispatch("addFavorite", payload)
+      await this.$store.dispatch("addFavoritePlace", payload)
     },
     async removeFavorite() {
-      let getLineIDToken = store.getters.getLineIDToken
+      let getLineIDToken = this.$store.getters.getLineIDToken
 
       if (getLineIDToken == "") {
         return
@@ -57,7 +59,7 @@ export default {
           place_id: this.place.PlaceID
         }
       }
-      await store.dispatch("removeFavorite", payload)
+      await this.$store.dispatch("removeFavorite", payload)
     }
   }
 };

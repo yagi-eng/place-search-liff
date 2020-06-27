@@ -40,6 +40,20 @@ export const actions = {
         const client = createRequestClient(this.$axios)
         const res = await client.post(payload.uri, payload.params)
         commit('mutateFavoritePlaces', res)
+    },
+    async addFavoritePlace({ commit }, payload) {
+        console.log(payload)
+        const client = createRequestClient(this.$axios)
+        const res = await client.post(payload.uri, payload.params)
+        if (res) {
+            if (res.IsAlreadyAdded) {
+                alert('既に登録済みです')
+            } else {
+                alert('登録しました')
+            }
+        } else {
+            alert('登録に失敗しました')
+        }
     }
 }
 
