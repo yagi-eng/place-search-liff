@@ -9,7 +9,7 @@
     <v-card-actions>
       <v-btn color="primary" link nuxt :href="place.URL">Open Google Map</v-btn>
       <div class="ml">
-        <v-btn v-if="page == 'search'" @click.prevent="addFavoritePlace">Add to favorites</v-btn>
+        <v-btn v-if="page == 'search'" class="small" @click.prevent="addFavoritePlace">Add to favorites</v-btn>
         <v-btn v-if="page == 'top'" @click.prevent="removeFavoritePlace">Remove</v-btn>
       </div>
     </v-card-actions>
@@ -77,5 +77,9 @@ export default {
 .primary {
   background-color: #1976d2 !important;
   border-color: #1976d2 !important;
+}
+
+.small {
+  font-size: 0.7rem !important;
 }
 </style>
