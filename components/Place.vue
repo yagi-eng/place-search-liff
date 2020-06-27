@@ -10,7 +10,7 @@
       <v-btn color="primary" link nuxt :href="place.URL">Open Google Map</v-btn>
       <div class="ml">
         <v-btn v-if="page == 'search'" @click.prevent="addFavoritePlace">Add to my favorites</v-btn>
-        <v-btn v-if="page == 'top'" @click.prevent="toggleFavorite">Remove</v-btn>
+        <v-btn v-if="page == 'top'" @click.prevent="removeFavoritePlace">Remove</v-btn>
       </div>
     </v-card-actions>
   </v-card>
@@ -45,7 +45,7 @@ export default {
       }
       await this.$store.dispatch("addFavoritePlace", payload)
     },
-    async removeFavorite() {
+    async removeFavoritePlace() {
       let getLineIDToken = this.$store.getters.getLineIDToken
 
       if (getLineIDToken == "") {
@@ -59,7 +59,7 @@ export default {
           place_id: this.place.PlaceID
         }
       }
-      await this.$store.dispatch("removeFavorite", payload)
+      await this.$store.dispatch("removeFavoritePlace", payload)
     }
   }
 };

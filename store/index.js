@@ -54,6 +54,20 @@ export const actions = {
         } else {
             alert('登録に失敗しました')
         }
+    },
+    async removeFavoritePlace({ commit }, payload) {
+        console.log(payload)
+        const client = createRequestClient(this.$axios)
+        const res = await client.post(payload.uri, payload.params)
+        if (res) {
+            if (res.IsAlreadyRemoved) {
+                alert('既に削除済みです')
+            } else {
+                alert('削除しました')
+            }
+        } else {
+            alert('削除に失敗しました')
+        }
     }
 }
 
