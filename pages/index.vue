@@ -1,8 +1,12 @@
 <template>
   <section class="section">
     <div class="container">
-      <div v-for="place in places" v-bind:key="place.id">
-        <Place :place="place" page="top" />
+      <h2>My favorites</h2>
+      <div class="mt">
+        <p v-if="places == ''">お気に入りが登録されていません。登録しているのに表示されない場合はリロードしてみてください。</p>
+        <div v-for="place in places" v-bind:key="place.id">
+          <Place :place="place" page="top" />
+        </div>
       </div>
     </div>
   </section>
@@ -44,3 +48,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.mt {
+  margin-top: 0.5rem;
+}
+</style>
