@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-auto mt" max-width="400">
+  <v-card class="mx-auto mb" max-width="400">
     <v-img height="200px" :src="place.PhotoURL"></v-img>
 
     <v-card-subtitle>{{ place.Name }}</v-card-subtitle>
@@ -9,7 +9,7 @@
     <v-card-actions>
       <v-btn color="primary" link nuxt :href="place.URL">Open Google Map</v-btn>
       <div class="ml">
-        <v-btn v-if="page == 'search'" @click.prevent="addFavoritePlace">Add to my favorites</v-btn>
+        <v-btn v-if="page == 'search'" @click.prevent="addFavoritePlace">Add to favorites</v-btn>
         <v-btn v-if="page == 'top'" @click.prevent="removeFavoritePlace">Remove</v-btn>
       </div>
     </v-card-actions>
@@ -66,7 +66,7 @@ export default {
 </script>
 
 <style scoped>
-.mt {
+.mb {
   margin-bottom: 1.25rem;
 }
 

@@ -42,7 +42,6 @@ export const actions = {
         commit('mutateFavoritePlaces', res)
     },
     async addFavoritePlace({ commit }, payload) {
-        console.log(payload)
         const client = createRequestClient(this.$axios)
         const res = await client.post(payload.uri, payload.params)
         if (res) {
@@ -56,7 +55,6 @@ export const actions = {
         }
     },
     async removeFavoritePlace({ commit }, payload) {
-        console.log(payload)
         const client = createRequestClient(this.$axios)
         const res = await client.post(payload.uri, payload.params)
         if (res) {
