@@ -5,7 +5,7 @@
         <nuxt-link to="/">お気に入り一覧へ</nuxt-link>
       </div>
       <div v-for="place in places" v-bind:key="place.id">
-        <Place :place="place" />
+        <Place :place="place" page="search" />
       </div>
       <div class="mt">
         <nuxt-link to="/">お気に入り一覧へ</nuxt-link>

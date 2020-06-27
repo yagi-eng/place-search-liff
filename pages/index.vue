@@ -2,7 +2,7 @@
   <section class="section">
     <div class="container">
       <div v-for="place in places" v-bind:key="place.id">
-        <Place :place="place" />
+        <Place :place="place" page="top" />
       </div>
     </div>
   </section>
