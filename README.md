@@ -13,7 +13,7 @@ https://lin.ee/R5mD4Dt
 ## Qiita
 詳細をまとめたQiitaはこちら
 
-[GoとNuxtで飲食店検索ができるLINE BOTとLINEミニアプリ(LIFF)を作ってみた（後でリンク貼る）]()
+[GoとNuxtで飲食店検索ができるLINE BOTとLINEミニアプリ(LIFF)を作ってみた](https://qiita.com/yagi_eng/items/8490f189d1be82c433e2)
 
 ## 機能一覧
 ### キーワード検索
